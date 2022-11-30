@@ -36,4 +36,3 @@ See https://reinvent.eksworkshop.com/docs/fundamentals/
 Wednesday Nov. 30 Session
 
 With auto manufacturers committed to electrifying their fleets over the next decade, the ability to monitor electric vehicle (EV) battery health will become critical to their success. In this workshop, get hands-on experience using AWS IoT FleetWise to collect battery management system (BMS) data and learn about the service’s technical capabilities and logical architecture. Walk through vehicle modeling, campaign creation, and data ingestion using AWS IoT FleetWise, then set up a dashboard to view insights.
-
