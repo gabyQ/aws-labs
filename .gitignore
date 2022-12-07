@@ -2,3 +2,4 @@ id_rsa_personal
 id_rsa_personal.pub
 tf-security/terraform-security-solutions/.terraform
 */.terraform/*
+iot-ev-battery/aws-labs.code-workspace
