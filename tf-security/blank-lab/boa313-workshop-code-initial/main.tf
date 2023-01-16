@@ -2,6 +2,8 @@
    SPDX-License-Identifier: MIT-0 */
 
 # --- root/main.tf ---
+# Sets up the network Infrastructure and the two EC2 instances.
+# These are used to simulate an attack and generate GuardDuty findings.
 
 # CREATES VPC
 module "vpc" {

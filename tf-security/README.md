@@ -24,14 +24,78 @@ This workshop will take approximatley 2 hours to complete.
 
 ##### Attended 2022-11-08 at the MGM Grand Hotel Las Vegas
 
+## Amazon Services
+
+### Amazon GuardDuty
+
+Amazon GuardDuty is a security monitoring service that analyzes and processes data sources. It detects abnormal behaviour for a variety of services, and reports findings. For example, for [EC2](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html), GuardDuty has several possible finding types.
+
+#### EC2 Finding Types
+
+##### Backdoor:EC2/C&CActivity.B
+
+An EC2 instance is querying an IP that is associated with a known command and control server. The listed instance might be compromised. Command and control servers are computers that issue commands to members of a botnet.
+
+##### Backdoor:EC2/DenialOfService.Tcp
+
+An EC2 instance is behaving in a manner indicating it is being used to perform a Denial of Service (DoS) attack using the TCP protocol.
+
+### AWS WAF
+
+### AWS CloudWatch
+
+
+### AWS Lambda
+
+### Amazon SNS
+
+### Amazon EventBridge
+
 
 ## Setup
+
+### Install Terraform
+
+[Docs](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+```
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+brew update
+brew upgrade hashicorp/tap/terraform
+
+# Confirm the install
+terraform -v
+```
+
+### Clone the repository
+
+[Repo](https://github.com/gabyQ/aws-labs/tree/main/tf-security)
+
+### Setup AWS CLI
+
+```
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+aws configure
+# Follow steps to configure with your AWS account details
+```
 
 ### Deploy the initial environment
 
 You will initialize Terraform and apply the starting configuration. This includes the VPC with initial security group, two compute instances, and IAM user that the malicious instance will use to similate a compromise.
 
-CD into the boa313-workshop-code-initial directory and perform a terraform init, followed by terraform plan. If the plan is successful you should perform a terraform apply -auto-approve as seen in the code below.
+CD into the `blank-lab/boa313-workshop-code-initial` directory and perform a terraform init, followed by terraform plan. If the plan is successful you should perform a terraform apply -auto-approve as seen in the code below.
+
+```
+cd tf-security
+cp -r blank-lab/boa313-workshop-code-initial my-terraform-lab
+
+terraform init
+terraform plan
+```
 
 ### Creating and Deploying the S3 Bucket module in Terraform
 

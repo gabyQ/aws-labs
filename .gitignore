@@ -3,3 +3,8 @@ id_rsa_personal.pub
 tf-security/terraform-security-solutions/.terraform
 */.terraform/*
 iot-ev-battery/aws-labs.code-workspace
+tf-security/blank-lab/boa313-workshop-code-initial/.terraform/modules/modules.json
+tf-security/blank-lab/boa313-workshop-code-initial/.terraform.lock.hcl
+tf-security/blank-lab/boa313-workshop-code-initial/.terraform/providers/registry.terraform.io/hashicorp
+tf-security/gaby-lab
+tf-security/my-terraform-lab
