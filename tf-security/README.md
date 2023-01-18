@@ -13,6 +13,7 @@ While the same configuraiton can be accomplished using the AWS Console, CDK, or 
 
 This security solution encompases multiple AWS services to perform automatic isolation of an EC2 instance after GuardDuty presents findings that the host has been compromised. Throughout this workshop you will create Terraform modules to facilitate the creation of the environment. Some of the more fundamental Terraform configuration is provided for you, such as setting up the Network Infrastructure and the two EC2 instances that are used to simulate an attack and generate GuardDuty findings. You will be tasked with adding additional components to accomplish the overall goal. This includes the setup GuardDuty, EventBridge, SNS, and Lambda to perform the isolation and notification functions. The following image shows the final architecture.
 
+
 ### High Level Automation Goal
 The process you will accomplish through this configuration is:
 
@@ -22,6 +23,9 @@ Triggers an SNS rule that sends an email to a defined admin with easy to read te
 Triggers a Lambda function that moves the compromised host to a forensic security group where it is isolated for furter investigation.
 This workshop will take approximatley 2 hours to complete.
 
+![Architecture](./images/overall.png)
+
+
 ##### Attended 2022-11-08 at the MGM Grand Hotel Las Vegas
 
 ## Amazon Services
@@ -30,26 +34,50 @@ This workshop will take approximatley 2 hours to complete.
 
 Amazon GuardDuty is a security monitoring service that analyzes and processes data sources. It detects abnormal behaviour for a variety of services, and reports findings. For example, for [EC2](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html), GuardDuty has several possible finding types.
 
+
 #### EC2 Finding Types
+
 
 ##### Backdoor:EC2/C&CActivity.B
 
 An EC2 instance is querying an IP that is associated with a known command and control server. The listed instance might be compromised. Command and control servers are computers that issue commands to members of a botnet.
 
+
 ##### Backdoor:EC2/DenialOfService.Tcp
 
 An EC2 instance is behaving in a manner indicating it is being used to perform a Denial of Service (DoS) attack using the TCP protocol.
 
+
 ### AWS WAF
 
+[AWS Web Application Firewall](https://aws.amazon.com/waf/) helps you protect against common web exploits and bots that can affect availability, compromise security, or consume excessive resources.
+
+
+### AWS VPC
+
+[Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) (Amazon VPC) enables you to launch AWS resources into a virtual network that you've defined. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS.
+
+It allows you to configure features such as subnets, IP addressing, routing, gateways and endpoints, peering connections, traffic monitoring, and more.
+
+
 ### AWS CloudWatch
+
+[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) collects and visualizes real-time logs, metrics, and event data in automated dashboards to streamline your infrastructure and application maintenance. Observe and monitor resources and applications on AWS, on premises, and on other clouds.
 
 
 ### AWS Lambda
 
+[AWS Lambda](https://aws.amazon.com/lambda/) is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use.
+
+
 ### Amazon SNS
 
+[Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) sends notifications two ways, A2A and A2P. A2A provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. A2P functionality lets you send messages to your customers with SMS texts, push notifications, and email. 
+
+
 ### Amazon EventBridge
+
+[Amazon EventBridge](https://aws.amazon.com/eventbridge/) is a serverless event bus that helps you receive, filter, transform, route, and deliver events.
 
 
 ## Setup
